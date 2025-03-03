@@ -10,7 +10,8 @@ export async function load() {
     event: "loaded_svelte_app",
   });
 
-  posthog.captureException(new Error("A random error"));
+  const isEnabled = await posthog.isFeatureEnabled("key", "context");
+  posthog.captureException(new Error("A random error: " + isEnabled));
 
   console.log("ran load function");
 
