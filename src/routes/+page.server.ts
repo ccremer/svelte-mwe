@@ -12,5 +12,7 @@ export async function load() {
 
   posthog.captureException(new Error("A random error"));
 
+  console.log("ran load function");
+
   await posthog.shutdown();
 }
